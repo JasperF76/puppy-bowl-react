@@ -45,3 +45,28 @@ img {
   height: 250px;
   width: 250px;
 }
+
+.allplayers {
+  border: 5px solid darkslateblue;
+  padding: 10px;
+  margin: 5px;
+}
+
+body {
+  background-color: lightgreen;
+}
+
+button {
+  margin: 5px;
+}
+
+.main-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.single-pic {
+  height: 500px;
+  width: 500px;
+}

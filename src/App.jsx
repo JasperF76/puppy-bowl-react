@@ -6,12 +6,12 @@ import { Routes, Route } from 'react-router-dom'
 
 function App() {
   const [player, setPlayer] = useState(null)
-
+  const [playerAdded, setPlayerAdded] = useState(false)
   return (
     <div>
       
       <Routes>
-        <Route path='/' element={<AllPlayers setPlayer={setPlayer}/>} />
+        <Route path='/' element={<AllPlayers setPlayer={setPlayer} playerAdded={playerAdded} setPlayerAdded={setPlayerAdded}/>} />
         <Route path='/players/:id' element={<SinglePlayer player={player}/>} />
     </Routes>
     </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
+import AllPlayers from "./AllPlayers";
 
-export default function NewPlayerForm() {
+export default function NewPlayerForm({players, setPlayers}) {
     const [name, setName] = useState("");
     const [breed, setBreed] = useState("");
     const [status, setStatus] = useState("");
@@ -24,6 +25,8 @@ export default function NewPlayerForm() {
                 }
             );
             const result = await response.json();
+            const newPlayerList = [...players, result.data.newPlayer]          
+            setPlayers(newPlayerList)
         } catch (error) {
             setError(error.message)
         }
@@ -36,9 +39,11 @@ export default function NewPlayerForm() {
                 <label>
                     <strong>Name:</strong> <input type="text" onChange={(e) => setName(e.target.value)} />
                 </label>
+                <br></br>
                 <label>
                     <strong>Breed:</strong> <input type="text" onChange={(e) => setBreed(e.target.value)} />
                 </label>
+                <br></br>
                 <label>
                     <strong>Status:</strong> <input type="text" onChange={(e) => setStatus(e.target.value)} />
                     <select id="status" type="text" name="status">
@@ -46,14 +51,17 @@ export default function NewPlayerForm() {
                     <option value="bench">Bench</option>
                 </select>
             </label>
+            <br></br>
             <label>
                 <strong>Team:</strong> <input type="text" onChange={(e) => setTeam(e.target.value)} />
             </label>
+            <br></br>
             <label>
                 <strong>Image:</strong> <input type="text" onChange={(e) => setImageUrl(e.target.value)} />
             </label>
+            <br></br>
             <button>Submit</button>
-        </form >
+            </form >
         </>
     )
 }

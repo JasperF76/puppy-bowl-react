@@ -9,6 +9,7 @@ export default function SinglePlayer({ player }) {
         {
             method: "DELETE",
         });
+        
         navigate("/") 
         } catch (error) {
             
@@ -19,9 +20,12 @@ export default function SinglePlayer({ player }) {
         <>
             <div>
                 
-                <h3>{player.name}</h3>
-                <h3>{player.breed}</h3>
-                <h3>{player.imageUrl}</h3>
+                <h3>Name: {player.name}</h3>
+                <h3>Breed: {player.breed}</h3>
+                <h3>Status: {player.status}</h3>
+                <h3>Team: {player.teamId}</h3>
+                <img src={player.imageUrl} alt="a cute dog" className="single-pic" />
+                <br></br>
                 <button onClick={() =>
                     navigate("/")}>Back to Players</button>
                 <button onClick={() =>

@@ -34,25 +34,28 @@ export default function AllPlayers({ setPlayer }) {
         player.name.toLowerCase().includes(searchParam)) : players;
 
     return (<>
-        <NewPlayerForm />
+        <h1>Welcome to Puppy Bowl!</h1>
+        <NewPlayerForm players={players} setPlayers={setPlayers} />
         <label>
-            Search:{" "}
+            <strong>Search For Your Pup:</strong>{" "}
             <input type="text" placeholder="search" onChange={(e) => setSearchParam(e.target.value.toLowerCase())} />
         </label>
-
-        {playersToDisplay.map((player) => {
+        <div className="main-body">
+        {players.map((player) => {
             return (
-                <div>
+                <div className="allplayers">
 
-                    <h2 onClick={() => {
+                    <h2>Name: {player.name}</h2> 
+                    <h4>Breed: {player.breed}</h4>
+                    <img src={player.imageUrl} alt="a cute dog" /><br></br>
+                    <button  onClick={() => {
                         setPlayer(player);
                         navigate(`/players/${player.id}`)
-                    }}>{player.name}</h2>
-                    <h4>{player.breed}</h4>
-                    <img src={player.imageUrl} alt="a cute dog" />
+                    }}>See More Details</button>
                 </div>)
+                
         })
-        }
+        }</div>
     </>
 
     )
