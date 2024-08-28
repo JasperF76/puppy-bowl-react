@@ -41,7 +41,7 @@ export default function AllPlayers({ setPlayer }) {
             <input type="text" placeholder="search" onChange={(e) => setSearchParam(e.target.value.toLowerCase())} />
         </label>
         <div className="main-body">
-        {players.map((player) => {
+        {playersToDisplay.map((player) => {
             return (
                 <div className="allplayers">
 
